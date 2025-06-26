@@ -8,5 +8,6 @@ CLIENTES = [
     {"id": 7, "nome": "Gabriela Nunes", "email": "gabriela.nunes@email.com"},
     {"id": 8, "nome": "Henrique Castro", "email": "henrique.castro@email.com"},
     {"id": 9, "nome": "Isabela Martins", "email": "isabela.martins@email.com"},
-    {"id": 10, "nome": "João Victor", "email": "joao.victor@email.com"}
+    {"id": 10, "nome": "João Victor", "email": "joao.victor@email.com"},
+    {"id": 11, "nome": "Rogerio Foice", "email": "rogerio.foice@email.com"}
 ]

@@ -1,21 +1,38 @@
 <body>
-    <form class="c-form" action="{{ url_for('cliente.inserir_cliente') }}" method="POST">
+    <form class="c-form" 
+      {% if cliente %}
+        action="{{ url_for('cliente.atualizar_cliente', cliente_id=cliente.id) }}"
+      {% else %}
+        action="{{ url_for('cliente.inserir_cliente') }}"
+      {% endif %}
 
-        <div class="mb-3">
-            <label for="exampleInputEmail1">Nome</label>
-            <input type="text" class="form-control" name="nome">
+      method="{% if cliente %}PUT{% else %}POST{% endif %}"
+      
+      {% if cliente %}  
+        c-swap="#cliente-{{cliente.id}}"
+      {% else %}  
+        c-append="#lista_clientes"
+      {% endif %}  
 
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputEmail1">Email</label>
-            <input type="text" class="form-control" name="email">
+      >
 
-        </div>
+    <div class="mb-3">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" class="form-control" name="nome"
+               value="{% if cliente %}{{ cliente.nome }}{% endif %}">
+    </div>
 
+    <div class="mb-3">
+        <label for="email">Email</label>
+        <input type="text" id="email" class="form-control" name="email"
+               value="{% if cliente %}{{ cliente.email }}{% endif %}">
+    </div>
 
+    <button type="submit" class="btn btn-primary">
+        {% if cliente %} Salvar {% else %} Criar {% endif %}
+    </button>
+</form>
 
-        <button type="submit" class="btn btn-primary">Increver-se</button>
-    </form>
 
 </body>
 
